@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/lbCochesMain"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Coches: 0"
+        android:textColor="#3E1D78"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnCocheMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Coche"
+        android:textSize="20sp"
+        app:cornerRadius="0dp"
+        app:icon="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/lbMotosMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Motos: 0"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnMotoMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Moto"
+        android:textSize="20sp"
+        app:cornerRadius="0dp"
+        app:icon="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/lbBicisMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Bicis: 0"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnBiciMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Bici"
+        android:textSize="20sp"
+        app:cornerRadius="0dp"
+        app:icon="@android:drawable/ic_input_add" />
+</LinearLayout>
