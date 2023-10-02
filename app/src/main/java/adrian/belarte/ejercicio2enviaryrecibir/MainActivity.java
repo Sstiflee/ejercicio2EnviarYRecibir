@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import adrian.belarte.ejercicio2enviaryrecibir.actividades.CrearBiciActivity;
 import adrian.belarte.ejercicio2enviaryrecibir.actividades.CrearCocheActivity;
 import adrian.belarte.ejercicio2enviaryrecibir.actividades.CrearMotoActivity;
 import adrian.belarte.ejercicio2enviaryrecibir.modelos.Bici;
@@ -58,6 +59,41 @@ public class MainActivity extends AppCompatActivity {
                 launcherMotos.launch(new Intent(MainActivity.this, CrearMotoActivity.class));
             }
         });
+        btnCrearBici.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launcherBicis.launch(new Intent(MainActivity.this, CrearBiciActivity.class));
+            }
+        });
+        launcherBicis = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if(result.getResultCode() == RESULT_OK){
+
+                            //INTENT                              BUNDLE
+                            if(result.getData() != null && result.getData().getExtras() != null){
+                                Bici bici = (Bici) result.getData().getExtras().getSerializable("BICI");
+
+
+                                if(bici != null){
+                                    listaBicis.add(bici);
+
+                                    lbCantidadBicis.setText("Bicis: "+listaBicis.size());
+                                    //   Toast.makeText(MainActivity.this, listaCoches.size(), Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(MainActivity.this, "No hay Bicis", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(MainActivity.this, "No hay datos", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(MainActivity.this, "Activdad Cancelada", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
         
         launcherCoches = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
